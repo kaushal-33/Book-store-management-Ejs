@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
+
+  <!-- Book Wrapper -->
+  <div class="relative flex items-stretch">
+    <!-- Book Spine -->
+    <div
+      class="w-8 md:w-12 bg-gradient-to-b from-amber-800 to-amber-900 rounded-l-2xl shadow-xl border-r border-amber-900">
+      <div class="h-full flex items-center justify-center rotate-180">
+        <p class="text-xs md:text-sm tracking-[0.3em] text-amber-100 [writing-mode:vertical-rl]">
+          BOOK FORM
+        </p>
+      </div>
+    </div>
+
+    <!-- Book Cover -->
+    <div
+      class="bg-gradient-to-br from-amber-200 via-amber-100 to-amber-50 rounded-r-2xl shadow-2xl border border-amber-300 p-1">
+
+      <!-- Page (inner white area) -->
+      <div class="bg-white rounded-xl shadow-inner border border-amber-100 px-6 py-6 md:px-10 md:py-8 max-w-xl">
+        <!-- Top “bookmark” -->
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-2xl font-semibold tracking-wide text-amber-900">
+            Add Book
+          </h2>
+          <span class="h-8 w-3 bg-red-500 rounded-b-full shadow-md"></span>
+        </div>
+
+        <form action="/add-book" method="POST" class="space-y-4 text-sm md:text-base">
+
+          <!-- Book Name -->
+          <div class="flex flex-col gap-1">
+            <label for="bookName" class="font-medium text-slate-800">Book Name</label>
+            <input type="text" name="bookName" id="bookName" required
+              class="px-3 py-2 rounded-md border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 bg-amber-50/60"
+              placeholder="Enter book title" />
+          </div>
+
+          <!-- Author Name -->
+          <div class="flex flex-col gap-1">
+            <label for="authorName" class="font-medium text-slate-800">Author Name</label>
+            <input type="text" name="authorName" id="authorName" required
+              class="px-3 py-2 rounded-md border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 bg-amber-50/60"
+              placeholder="Enter author name" />
+          </div>
+
+          <!-- Genre -->
+          <div class="flex flex-col gap-1">
+            <label for="genre" class="font-medium text-slate-800">Genre</label>
+            <select name="genre" id="genre" required
+              class="px-3 py-2 rounded-md border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 bg-amber-50/60">
+              <option value="" disabled selected>Select Genre</option>
+              <option value="fiction">Fiction</option>
+              <option value="non-fiction">Non-Fiction</option>
+              <option value="science">Science</option>
+              <option value="biography">Biography</option>
+              <option value="kids">Kids</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="technology">Technology</option>
+              <option value="mystery">Mystery</option>
+            </select>
+          </div>
+
+          <!-- Price -->
+          <div class="flex flex-col gap-1">
+            <label for="price" class="font-medium text-slate-800">Price</label>
+            <input type="number" name="price" id="price" required
+              class="px-3 py-2 rounded-md border border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 bg-amber-50/60"
+              placeholder="Enter price" />
+          </div>
+
+          <!-- Language -->
+          <div class="flex flex-col gap-2">
+            <p class="font-medium text-slate-800">Select Language</p>
+            <div class="flex flex-wrap gap-4">
+              <label class="inline-flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="language" value="hindi" id="hindi" required
+                  class="text-amber-500 focus:ring-amber-400" />
+                <span>Hindi</span>
+              </label>
+              <label class="inline-flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="language" value="english" id="english" required
+                  class="text-amber-500 focus:ring-amber-400" />
+                <span>English</span>
+              </label>
+              <label class="inline-flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="language" value="gujarati" id="gujarati" required
+                  class="text-amber-500 focus:ring-amber-400" />
+                <span>Gujarati</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Tags -->
+          <div class="flex flex-col gap-2">
+            <p class="font-medium text-slate-800">Tags</p>
+            <div class="flex flex-wrap gap-4">
+              <label class="inline-flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" name="bestSeller" value="true" id="bestSeller"
+                  class="text-amber-500 focus:ring-amber-400" />
+                <span>Best Seller</span>
+              </label>
+              <label class="inline-flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" name="newArrival" value="true" id="newArrival"
+                  class="text-amber-500 focus:ring-amber-400" />
+                <span>New Arrival</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-4 flex justify-between">
+            <a href="/view-book"
+              class="px-5 py-2.5 rounded-full bg-amber-600 capitalize hover:bg-amber-700 text-white font-medium shadow-md hover:shadow-lg transition">bookshelf</a>
+            <button type="submit"
+              class="px-5 py-2.5 rounded-full bg-amber-600 hover:bg-amber-700 text-white font-medium shadow-md hover:shadow-lg transition">
+              Save Book
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
